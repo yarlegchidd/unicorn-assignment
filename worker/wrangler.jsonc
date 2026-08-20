@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "creativescope-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-02-04",
+  "observability": { "enabled": true },
+  "vars": {
+    // Comma-separated list of origins allowed to call the API from a browser.
+    // "*" keeps the tool open, which the assignment explicitly asks for.
+    // Narrow this to the Pages URL if the tool ever stops being public.
+    "ALLOWED_ORIGINS": "*"
+  }
+
+  // Optional result cache. Analyses are deterministic enough (temperature 0)
+  // and Gemini calls are the expensive part, so repeat lookups of the same
+  // Drive file can be served from KV. Create the namespace and uncomment to
+  // enable -- the Worker runs fine without the binding.
+  //
+  // "kv_namespaces": [
+  //   { "binding": "ANALYSIS_CACHE", "id": "<namespace-id>" }
+  // ]
+}

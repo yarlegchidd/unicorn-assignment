@@ -1,0 +1,22 @@
+{
+  "name": "creativescope",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Creative analysis tool for performance marketing: Google Drive link in, structured subject attributes and speech transcript out.",
+  "scripts": {
+    "install:all": "npm --prefix worker install && npm --prefix web install",
+    "dev": "npm-run-all --parallel dev:api dev:web",
+    "dev:api": "npm --prefix worker run dev",
+    "dev:web": "npm --prefix web run dev",
+    "build": "npm --prefix web run build",
+    "test": "npm --prefix worker run test && npm --prefix web run test",
+    "test:web": "npm --prefix web run test",
+    "test:api": "npm --prefix worker run test",
+    "typecheck": "npm --prefix worker run typecheck && npm --prefix web run typecheck",
+    "deploy:api": "npm --prefix worker run deploy",
+    "deploy:web": "npm --prefix web run deploy"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
